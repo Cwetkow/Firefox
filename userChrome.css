@@ -1,0 +1,319 @@
+.tabbrowser-tab:not([pinned]) {
+  min-width: 17px !important;
+}
+
+/*Context text*/
+#context_reloadTab,
+#context_toggleMuteTab,
+#context_undoCloseTab,
+#context_closeTab,
+#context_moveTabOptions,
+#context_sendTabToDevice,
+#context_closeOtherTabs,
+#context_bookmarkTab,
+#context-sendpagetodevice,
+#_446900e4-71c2-419f-a6a7-df9c091e268b_-menuitem-_root,
+#context-sep-viewbgimage,
+#context-navigation {
+  display: none!important;
+}
+
+/*Context image-link*/
+#context-openlinkintab,
+#context-openlinkinusercontext-menu,
+#context-openlink,
+#context-openlinkprivate,
+#context-sep-open,
+#context-bookmarklink, 
+#context-savelink,
+#context-copylink,
+#context-sep-copylink,
+#context-sendimage,
+#context-setDesktopBackground,
+#context-sep-sendlinktodevice,
+#context-sendlinktodevice {
+  display: none!important;
+}
+
+/*Гамбургер настройки*/
+#appMenu-edit-controls,
+#appMenu-print-button,
+#appMenu-find-button {
+  display: none;
+}
+toolbarseparator:nth-child(12) {
+  display: none;
+}
+
+/*Цвет невыделенных вкладок*/
+#main-window { background-color: #202124 !important; }
+
+/*Размер шрифтов*/
+toolbarbutton.bookmark-item:not(.subviewbutton) {
+  font-size: 13px!important;
+}
+menu.bookmark-item, menuitem.bookmark-item {
+  font-size: 13px!important;
+}
+.tab-label {
+  font-size: 14px !important;
+  opacity: 0.9 !important;
+}
+
+/* Убрать белую вспышку 
+#browser vbox#appcontent tabbrowser,
+#content,
+#tabbrowser-tabpanels,
+browser[type=content-primary],
+browser[type=content] > html {
+	background: #000000 !important;
+}
+*/
+
+/** Убрать вспышку */
+@-moz-document url-prefix(about:), url-prefix(chrome://browser) {
+  browser[type="content"], tabpanels {
+  background: #1a1a1a !important;
+}
+}
+/***************************************************************************/
+
+/* Убрать подпись сайта с https */
+#identity-box.verifiedIdentity #identity-icon-labels {
+  display: none !important;
+}
+
+/***************************************************************************/
+
+/* Ширина и цвет скролла */
+.panel-subview-body {
+  scrollbar-color:  rgb(119,136,153) rgb(17,17,17);
+  scrollbar-width: thin;
+}
+#permList, scrollbar {
+  scrollbar-color:  rgb(119,136,153) rgb(17,17,17);
+  scrollbar-width: thin;
+}
+
+/***************************************************************************/
+
+/* Тёмное контекстное меню **/
+:root{
+  --uc-menu-bkgnd: rgb(74,74,79);
+  --uc-menu-color: rgb(230,230,230);
+  --uc-menu-dimmed: rgba(255,255,255,0.1);
+  --uc-menu-disabled: rgb(50,50,50);
+}
+
+panel richlistbox,
+panel tree,
+panel button,
+panel menulist,
+panel textbox,
+menupopup,
+menu,
+menuitem{ -moz-appearance: none !important; }
+
+menulist,
+menuitem,
+menu{ min-height: 1.8em }
+
+panel menulist{ border: 1px solid transparent }
+
+panel richlistbox,
+panel tree,
+panel button,
+panel menulist,
+panel textbox,
+menupopup:not(#BMB_bookmarksPopup),
+#main-menubar > menu > menupopup,
+#context-navigation{
+  color: var(--uc-menu-color) !important;
+  padding: 2px;
+  background-color: var(--uc-menu-bkgnd) !important;
+  border-color: var(--uc-menu-disabled) !important;
+}
+
+panel menulist:hover, panel menulist[open]{ border-color: Highlight !important; }
+
+#editBMPanel_folderMenuList > menupopup > menuitem{ color: var(--uc-menu-color) !important; }
+
+panel treechildren::-moz-tree-row(selected),
+panel button:hover,
+menu:hover,
+menu[_moz-menuactive],
+menu[open],
+menuitem:hover,
+menuitem[_moz-menuactive]{
+  background-color: var(--uc-menu-dimmed) !important;
+  color: inherit !important;
+}
+
+menu[disabled="true"],
+menuitem[disabled="true"]{ color: var(--uc-menu-disabled) !important; }
+
+menu:not(.subviewbutton) > .menu-right{ filter: invert(1) }
+
+
+/***************************************************************************/
+
+/* Изменить внешний вид виджетов в оригинальном стиле, включая радио, флажки, кнопки и стрелки раскрывающегося списка.
+Их фон будет прозрачным, а не белым, поэтому они будут соответствовать всему фону */
+
+/*! Таким образом, это может вызвать небольшую проблему, если фон окажется того же цвета, что и граница этих кнопок или флажок-изображение */
+
+/*? Короче говоря, эти нативные виджеты будут темными на темной теме и светлыми на светлой теме */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#editBMPanel_tagsSelector > richlistitem > image,
+radio > .radio-check,
+checkbox > .checkbox-check{
+  -moz-appearance: none !important;
+  border: 1px solid graytext;
+  border-radius: 2px;
+  height: 1.3em;
+  width: 1.3em;
+  padding: 1px;
+}
+
+#editBMPanel_tagsSelector > richlistitem > image{
+  background-color: var(--toolbar-bgcolor,rgb(50,50,52)) !important;
+  margin: 1px !important;
+  border-color: graytext !important;
+  border-radius: 2px !important;
+}
+
+#editBMPanel_tagsSelector > richlistitem:not([disabled]):hover > image,
+radio:not([disabled]):hover > .radio-check,
+checkbox:not([disabled]):hover > .checkbox-check{ border-color: highlight !important; }
+
+radio > .radio-check{ padding: 0; border-radius: 20px }
+
+#editBMPanel_tagsSelector > richlistitem[checked] > image,
+radio[selected] > .radio-check,
+checkbox[checked] > .checkbox-check{
+  list-style-image: url("chrome://global/skin/icons/check.svg");
+  -moz-context-properties: fill;
+  fill: highlight;
+}
+
+radio[selected] > .radio-check{ list-style-image: url("chrome://global/skin/in-content/radio.svg"); }
+
+#editBMPanel_tagsSelector > richlistitem[disabled] > image,
+radio[disabled] > .radio-check,
+checkbox[disabled] > .checkbox-check{ fill: graytext !important; }
+
+/* Кнопки */
+/* Это относится только к кнопкам в родном стиле, но не к кнопкам на панелях инструментов */
+
+button{
+  -moz-appearance: none !important;
+  color: inherit !important;
+	background-color: rgba(127,127,127,0.1) !important;
+  border: 1px solid graytext;
+}
+
+button[disabled]{ opacity: 0.8 }
+
+button:not([disabled]):hover{ border-color: highlight; background-color: rgba(0,0,0,0.1) !important; }
+
+button.searchbar-engine-one-off-item,
+.panel-footer > button{ border-width: 1px 0 0 0; }
+
+button.panel-button{ padding: 2px 2px 1px 2px !important; }
+
+#customization-done-button{ background-color: #0a84ff !important; }
+#customization-done-button:hover{ background-color: #0a64df !important; }
+
+/***************************************************************************/
+
+/* Темная библиотека, информация о странице и свойства закладки */
+/* Цветовая схема соответствует темной теме по умолчанию */
+
+@-moz-document url(chrome://browser/content/places/places.xul),
+  url(chrome://browser/content/pageinfo/pageInfo.xul),
+  url(chrome://browser/content/places/bookmarkProperties.xul){
+  
+  #placesToolbox,
+  #placesView,
+  #placesToolbar,
+  #main-window,
+  #topBar,
+  dialog,
+  tree{
+    -moz-appearance: none !important;
+    background-color: var(--toolbar-bgcolor,rgb(50,50,52)) !important;
+    color: rgb(249,249,250) !important;
+  }
+  #placesToolbar,
+  tree{
+    background: transparent !important;
+  }
+  textbox,
+  richlistbox,
+  treecol,
+  button,
+  menu,
+  #permList{
+    -moz-appearance: none !important;
+    color: inherit !important;
+  }
+  textbox,richlistbox{ background-color: rgba(0,0,0,0.2) !important; }
+  
+  treecol:not([hideheader]){ height: 24px; }
+  treecol:hover{ filter: brightness(160%) }
+  treechildren::-moz-tree-row(multicol, odd), #permList{ background-color: rgba(0,0,0,0.2) !important; }
+  
+  radiogroup > radio[selected],
+  radiogroup > radio:hover,
+  #permList > .permission:hover,
+  treechildren::-moz-tree-row(hover),
+  button:hover{ background-color: rgba(255,255,255,0.1) !important; color: inherit !important;}
+  
+  treechildren::-moz-tree-row(selected){ background-color: Highlight !important; }
+  button{ padding: 3px }
+  #placesMenu > menu{ border: none !important; }
+    
+  button{ border: 1px solid graytext; border-radius: 3px }
+
+}
+/* modal prompts (alert() & friends) */
+
+.paymentDialogContainerFrame,
+.tabmodalprompt-mainContainer{
+  background-color: var(--toolbar-bgcolor) !important;
+  color: var(--lwt-text-color,-moz-dialogtext) !important;
+}
+
+/***************************************************************************/
+
+/* Активные состояния и состояние наведения кнопки закрытия окна */
+/* Редактировать выбор цвета, как вы считаете нужным */
+
+#titlebar .titlebar-buttonbox > .titlebar-close:hover > .toolbarbutton-icon,
+.close-icon:active,
+.urlbar-history-dropmarker:active,
+#page-action-buttons > .urlbar-icon:active,
+#page-action-buttons > .urlbar-icon[open],
+.urlbar-icon-wrapper:active > .urlbar-icon,
+.urlbar-icon-wrapper[open] > .urlbar-icon,
+toolbar toolbarbutton:not([disabled]):active .toolbarbutton-icon,
+toolbar toolbarbutton:not([disabled])[open] .toolbarbutton-icon,
+#TabsToolbar toolbarbutton:not([disabled]):active .toolbarbutton-icon,
+toolbar #downloads-button:active #downloads-indicator-anchor,
+toolbar #downloads-button[open] #downloads-indicator-anchor,
+#identity-box:not([disabled]):active,
+.findbar-textbox~toolbarbutton:not([disabled]):active{ 
+  filter: brightness(2) drop-shadow(0 0 2px red) drop-shadow(0 0 0 yellow)
+}
+
+/***************************************************************************/
+
+/* Delete separator Firefox 70
+
+#tracking-protection-icon-container::after {
+  border-right: 0px !important;
+}
+
+*/
